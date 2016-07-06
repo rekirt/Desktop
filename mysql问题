@@ -1,0 +1,6 @@
+新安装完mysql，本地可以链接，但是无法远程通过ip地址链接，
+远程mysql -h 192.168.0.10 -uroot -proot test报如下错误
+ERROR 2003 (HY000): Can't connect to MySQL server (113)  
+
+解决办法关闭防火墙
+/etc/init.d/iptables stop

@@ -1,0 +1,43 @@
+{
+    "result": {
+        "token": "5b1ad0731fbede62cb8eed2c6abddfd7",
+        "userinfo": {
+            "birthday": null,
+            "register_time": "1463217687",
+            "credits": "0",
+            "last_login_ip": "1.202.73.154",
+            "city_id": null,
+            "nick_name": "1739",
+            "help": "0",
+            "through_group_id": "0",
+            "interest": null,
+            "gender": "未知",
+            "through_department_id": "0",
+            "certification_status": "0",
+            "email_status": "0",
+            "last_login_time": "1463575680",
+            "province_id": null,
+            "status": "1",
+            "register_ip": "1.202.73.154",
+            "district_id": null,
+            "group_id": null,
+            "avatar": null,
+            "bio": null,
+            "practitioner": "0",
+            "email": null,
+            "real_name": "王二",
+            "practitioner_status": "0",
+            "mid": "340",
+            "comment": "0",
+            "mobile_status": "0",
+            "broker": "0",
+            "lawyer_status": "0",
+            "lawyer": "0",
+            "collect": null,
+            "mobile": "13718651739"
+        },
+        "rong_token": "7ndNIbtMdpL2F5apGiMtW4lt1zic/ettDIuqK1N8bcHMc+Imz6FZX9BrNujSx61wagrvIvgoolQhcIl/gV/yWA=="
+    },
+    "msg": "登录成功！",
+    "code": "1000"
+}

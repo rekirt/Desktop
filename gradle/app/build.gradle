@@ -1,0 +1,198 @@
+apply plugin: 'com.android.application'
+apply plugin: 'im.fir.plugin.gradle'
+
+//android配置
+android {
+    compileSdkVersion Integer.parseInt(ANDROID_COMPILE_SDK)
+    buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['libs',"libs/armeabi","libs/arm64-v8a","libs/armeabi-v7a"]
+            res.srcDirs = ['src/main/res', 'src/main/res/values-720x1184', 'src/main/res/values-1080x1776', 'src/main/res/values-480x800']
+        }
+    }
+
+    //默认app配置信息
+    defaultConfig {
+        applicationId PACKAGENAME
+        minSdkVersion Integer.parseInt(ANDROID_MIN_SDK)
+        targetSdkVersion Integer.parseInt(ANDROID_TARGET_SDK)
+        versionCode Integer.parseInt(VERSION_CODE)
+        versionName Integer.parseInt(VERSION_CODE)+VERSION_NAME
+    }
+    //jdk配置
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+
+    //签名信息配置
+    signingConfigs {
+        release {
+            keyAlias KEYALIAS
+            keyPassword KEYPASSWORD
+            storeFile file(STOREFILEPATH)
+            storePassword STOREPASSWORD
+        }
+        debug {
+            keyAlias KEYALIAS
+            keyPassword KEYPASSWORD
+            storeFile file(STOREFILEPATH)
+            storePassword STOREPASSWORD
+        }
+    }
+    //打包信息配置
+    buildTypes {
+        debug {
+            //是否显示log
+            buildConfigField "boolean","LOG_DEBUG","true"
+            //versionNameSuffix "-debug"
+            //是否混淆
+            minifyEnabled false
+            //apk优化
+            //zipAlignEnabled false
+            //对资源进行压缩s
+            shrinkResources false
+            // dex突破65535的限制
+            multiDexEnabled false
+            signingConfig signingConfigs.debug
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            //是否显示log
+            buildConfigField "boolean","LOG_DEBUG","false"
+            //versionNameSuffix "-debug"
+            minifyEnabled false
+            //zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //lint配置
+    lintOptions {
+        abortOnError false
+    }
+    //引用jar包信息配置
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    //多渠道打包方式1
+    productFlavors{
+//        develop {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "develop"]
+//        }
+//
+//        wandoujia {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+//        }
+//
+//        xiaomi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+//        }
+
+//        tencent {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "tencent"]
+//        }
+//
+//        huawei {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+//        }
+//
+//        anzhi {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "anzhi"]
+//        }
+//
+//        baidu {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+//        }
+    }
+
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.apk')){
+//                def fileName = "bigrong_${variant.productFlavors[0].name}-${defaultConfig.versionCode}-${defaultConfig.versionName}-${releaseTime()}.apk"
+//                output.outputFile = new File(outputFile.parent,fileName);
+//            }
+//        }
+//    }
+
+    //多渠道打包方式2
+//    productFlavors {
+//        baidu {}
+//        wandoujia {}
+//        tencent {}
+//    }
+//
+//    productFlavors.all {
+//        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+//    }
+//
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def outputFile = output.outputFile
+//            if (outputFile != null && outputFile.name.endsWith('.apk')){
+//                //"demo_${variant.productFlavors[0].name}-${defaultConfig.versionCode}-${defaultConfig.versionName}-${releaseTime() }.apk"
+//                def fileName = "bigrong_${variant.productFlavors[0].name}-${defaultConfig.versionCode}-${defaultConfig.versionName}-${releaseTime()}.apk"
+//                output.outputFile = new File(outputFile.parent,fileName);
+//            }
+//        }
+//    }
+
+}
+
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"));
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.facebook.fresco:fresco:0.6.0'
+    compile 'com.github.frank-zhu:pullzoomview:1.0.0'
+    compile project(':library')
+    compile 'com.uwetrottmann.photoview:library:1.2.4'
+}
+
+//fir配置
+fir {
+    apiToken "9a3f85ad56b1028a636c85cb38919da8"
+    changeLog "更新内容:\n  1禁用地图详情点击事件\n  2关闭动态中没有数据提示信息\n  3修改部分bug"
+}
+
+//可选 如需实现自动上传符号表到 BugHD 功能，为必填项
+//bughd{
+//    projectId '21b20bcf07922d2411789fc144cf3b79'
+//    apiToken '9a3f85ad56b1028a636c85cb38919da8'
+//}
+//
+//buildTypes {
+//
+//    debug {
+//        signingConfig signingConfigs.debug
+//    }
+//
+//    //需要添加 release 配置
+//    release {
+//        //混淆配置打开时，才会自动上传符号表到 BugHD
+//        minifyEnabled false
+//        proguardFiles getDefaultProguardFile('proguardandroid.txt'), 'proguard-rules.pro'
+//        //需要使用正式证书签名，才能发布到fir.im
+//        signingConfig signingConfigs.release
+//    }
+//}
+

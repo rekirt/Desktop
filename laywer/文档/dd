@@ -1,0 +1,37 @@
+	JSONObject jsonObject = getResultArray().optJSONObject(index);
+        JSONObject goodsObj = null;
+        String title = "";
+        if (jsonObject.optString("order_type").equals("0")) {
+            goodsObj = jsonObject.optJSONArray("goods_list").optJSONObject(0);
+
+        } else {
+            goodsObj = jsonObject.optJSONObject("goods_list");
+        }
+        if (goodsObj != null) {
+            title = goodsObj.optString("goods_title", "");
+        }
+        return title;
+
+
+
+       String title = "";
+        if(0!=getCount()){
+            JSONObject jobject = getResultArray().optJSONObject(index);
+            JSONObject goodsObj = null;
+            if (null!=jobject) {
+                if(!jobject.isNull("order_type") && jobject.optString("order_type").equals("0")){
+                    JSONArray jarray = jobject.optJSONArray("goods_list");
+                    if(null!=jarray && jarray.length()!=0){
+                        goodsObj = jarray.optJSONObject(0);
+                    }else{
+                        goodsObj = jobject.optJSONObject("goods_list");
+                    }
+                }else{
+                    goodsObj = jobject.optJSONObject("goods_list");
+                }
+            }
+            if (null!=goodsObj && !goodsObj.isNull("goods_title") ) {
+                title = goodsObj.optString("goods_title", "");
+            }
+        }
+        return title;

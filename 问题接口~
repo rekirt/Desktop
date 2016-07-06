@@ -1,0 +1,9 @@
+消息
+	http://www.biyunapp.com/andlvshi/api/NotifyMessage/myMessage
+{"last_id":"0","os_name":"android","os_version":"1.0.5","to_member_id":"157","token":"f9e6db82d313184019d05e3cd3ef4b54","type":"goods","version":"1.0"}
+	服务消息：返回数据为空
+	http://www.biyunapp.com/andlvshi/api/NotifyMessage/myMessage
+{"last_id":"0","os_name":"android","os_version":"1.0.5","to_member_id":"157","token":"f9e6db82d313184019d05e3cd3ef4b54","type":"comment","version":"1.0"}
+	评价点赞：返回数据为空
+
+	这两种消息怎么采用同一个消息接口，

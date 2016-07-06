@@ -1,0 +1,6 @@
+sudo apt-get install lib32z1 lib32ncurses5  lib32stdc++6
+
+
+https://dl.google.com/android/repository/platform-24_r01.zip
+
+https://dl.google.com/android/repository/build-tools_r24-linux.zip

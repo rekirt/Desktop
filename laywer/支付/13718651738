@@ -1,0 +1,43 @@
+{
+    "msg": "登录成功！",
+    "result": {
+        "token": "d7f0420901f683d44d84c4befa1b6148",
+        "rong_token": "4n+cMR5kdnm+MdtZdA91kqEMhz6RbGXSJigBMSLcvPUnA8u+V0JsW18Syh82GWaZOlZSAKfZ9EA=",
+        "userinfo": {
+            "certification_status": "0",
+            "mid": "342",
+            "mobile": "13718651738",
+            "email": "",
+            "practitioner": "0",
+            "lawyer": "0",
+            "broker": "0",
+            "mobile_status": "0",
+            "email_status": "0",
+            "practitioner_status": "0",
+            "lawyer_status": "0",
+            "credits": "0",
+            "status": "1",
+            "group_id": null,
+            "real_name": "1738",
+            "nick_name": "1738",
+            "avatar": null,
+            "gender": "未知",
+            "birthday": null,
+            "province_id": "1",
+            "city_id": "2",
+            "district_id": "0",
+            "bio": "",
+            "interest": "",
+            "last_login_time": "1463575544",
+            "last_login_ip": "1.202.73.154",
+            "register_ip": "223.72.185.43",
+            "register_time": "1463314336",
+            "collect": null,
+            "help": "0",
+            "comment": "0",
+            "through_group_id": "0",
+            "through_department_id": "0"
+        }
+    },
+    "code": "1000"
+}
