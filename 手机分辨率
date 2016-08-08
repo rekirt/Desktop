@@ -1,49 +1,49 @@
 
-w====1080
-h====1776
-sh===75
-destiny===3.0
-destinyDpi===480
-
+资源文件  dpi         destiny
+ldpi    0dpi~120dpi
 mdpi 	120dpi~160dpi
 hdpi 	160dpi~240dpi
 xhdpi 	240dpi~320dpi
-xxhdpi 	320dpi~480dpi
+xxhdpi 	320dpi~480dpi 
 xxxhdpi 480dpi~640dpi
 
 
+dpi destiny
+120 0.75
+160 1.0
+213 1.33125
+240 1.5
+320 2.0
+420 2.625
+480 3.0
+560 3.5
+640 4.0
 
-mdpi
-240*320 120dpi
-240*480 160dpi
+dp 与密度无关的单位
+sp 与密度和scale都无关
+dp = px/destiny
 
-hdpi
-480*800 240dpi 
-480*854 240dpi
-xdpi
-720*1280 320dpi
+模拟器
+120 资源ldpi,图片默认
+160 资源mdpi,图片默认 
+213 资源hdpi,图片xhdpi
+240 资源hdpi,图片xhdpi
+320 资源xhdpi,图片xhdpi
+420 资源xxhdpi,图片xhdpi
+480 资源xxhdpi,图片xhdpi
+560 资源xxxhdpi,图片xhdpi
+
+真机
+120 资源ldpi,图片默认
+160 资源mdpi,图片默认 
+213 资源hdpi,图片xhdpi
+240 资源hdpi,图片xhdpi
+
+320 资源xhdpi,图片xhdpi
+420 资源xxhdpi,图片xxhdpi
+480 资源xxhdpi,图片xxhdpi
+560 资源xxxhdpi,图片xxxhdpi
 
 
-如果你有三个屏幕，都是1.5英寸宽，不同的屏幕分辨率，那么他们屏幕宽度仍为240的分辨率。
 
-1dp 和 160 dpi 屏幕的一个物理像素相等。计算 dp 的方法：
-
-*dp =(宽度像素 160)/ dpi**
-
-在编写 CSS 时,使用 px 无论 dp 或 sp。Dp 只需要用于开发 Android。
-可扩展像素（sp）
-
-在为安卓系统开发程序时，可扩展的像素（SP）提供和DP一样的功能，但只是在字体上。一个 SP 的默认值和 DP 上的默认值一样。
-
-SP 和 DP 之间的主要区别在于 SP 保留着用户的字体设置。具有较大文本设置的用户可以看到字体大小与文本大小的偏好匹配。
-为 DP 设计布局
-
-在设计屏幕布局时，计算 DP 元素的度量：
-
-*DP =(宽度像素 160)/ DPI**
-
-例如，在 320 dpi 的分辨率一个 32×32 像素的图标为 16 x 16 DP
-图像缩放
-
-通过运用这些比例，图像可以缩放到不同的屏幕分辨率的屏幕上并且看起来效果都一样：
 
